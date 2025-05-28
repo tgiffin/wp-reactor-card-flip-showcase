@@ -41,7 +41,7 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
               <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-inter font-medium">
                 {industry}
               </span>
-              <ReactorLogo className="w-6 h-6 opacity-70" />
+              <ReactorLogo className="w-8 h-8 opacity-80" variant="bug-color" />
             </div>
             
             <h3 className="font-inter font-bold text-xl text-white mb-3 leading-tight">
@@ -65,7 +65,7 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
             <h3 className="font-inter font-bold text-lg text-reactor-dark-blue">
               {title}
             </h3>
-            <ReactorLogo className="w-6 h-6" />
+            <ReactorLogo className="w-8 h-8" variant="bug-navy" />
           </div>
           
           <div className="space-y-4 text-sm">

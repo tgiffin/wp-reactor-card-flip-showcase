@@ -50,7 +50,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <ReactorLogo className="w-12 h-12" />
+              <ReactorLogo className="w-16 h-16" variant="horizontal-dark" />
               <div>
                 <h1 className="font-inter font-bold text-3xl text-reactor-dark-blue">
                   Industry Use Cases
@@ -114,7 +114,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-reactor-dark-blue text-white py-8 mt-16">
         <div className="container mx-auto px-6 text-center">
-          <ReactorLogo className="w-16 h-16 mx-auto mb-4" />
+          <ReactorLogo className="w-20 h-20 mx-auto mb-4" variant="horizontal-light" />
           <p className="font-inter text-sm">
             © 2024 Reactor Data. Transforming data into actionable insights.
           </p>
