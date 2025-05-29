@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Use Cases - Reactor Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reactor-use-cases.css">
+</head>
+<body>
+    <div class="reactor-page">
+        <!-- Header -->
+        <header class="reactor-header">
+            <div class="reactor-container">
+                <div class="reactor-header-content">
+                    <div class="reactor-header-left">
+                        <img src="Logo_Reactor_H_4C-Dark.png" alt="Reactor Data Logo" class="reactor-logo-header">
+                        <div class="reactor-header-text">
+                            <h1>Industry Use Cases</h1>
+                            <p>Discover how Reactor Data transforms industries through intelligent data solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Filter Bar -->
+        <div class="reactor-filter-bar">
+            <div class="reactor-container">
+                <h2>Filter by Industry</h2>
+                <div class="reactor-filter-buttons">
+                    <button class="reactor-filter-btn active" data-industry="all">All Industries</button>
+                    <button class="reactor-filter-btn" data-industry="Retail">Retail</button>
+                    <button class="reactor-filter-btn" data-industry="Travel & Hospitality">Travel & Hospitality</button>
+                    <button class="reactor-filter-btn" data-industry="Consumer Products">Consumer Products</button>
+                    <button class="reactor-filter-btn" data-industry="Media & Entertainment">Media & Entertainment</button>
+                    <button class="reactor-filter-btn" data-industry="Retail Financial Services">Retail Financial Services</button>
+                    <button class="reactor-filter-btn" data-industry="Healthcare">Healthcare</button>
+                    <button class="reactor-filter-btn" data-industry="Elder Care">Elder Care</button>
+                    <button class="reactor-filter-btn" data-industry="Automotive">Automotive</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <main class="reactor-main">
+            <div class="reactor-container">
+                <div class="reactor-cards-grid" id="cardsGrid">
+                    <!-- Use Case Cards will be dynamically generated here -->
+                </div>
+                <div class="reactor-no-results" id="noResults" style="display: none;">
+                    <p>No use cases found for the selected industries.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="reactor-footer">
+            <div class="reactor-container">
+                <img src="Logo_Reactor_H_4C-Light.png" alt="Reactor Data Logo" class="reactor-logo-footer">
+                <p>© 2024 Reactor Data. Transforming data into actionable insights.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="reactor-use-cases.js"></script>
+</body>
+</html>
