@@ -1,4 +1,3 @@
-
 import { UseCase } from './types';
 
 export const industryUseCases: UseCase[] = [
@@ -478,5 +477,106 @@ export const industryUseCases: UseCase[] = [
     sampleFields: ['user_id', 'table_accessed', 'timestamp'],
     reactorRole: 'Log every data touch and enable audit trails for compliance teams',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+
+  // High Tech/B2B
+  {
+    id: '43',
+    industry: 'High Tech/B2B',
+    title: 'Product Telemetry Ingestion',
+    whyItMatters: 'Collect and normalize telemetry from SaaS or hardware usage to detect patterns or issues',
+    dataSources: ['SaaS product logs', 'IoT device streams', 'mobile SDKs'],
+    entitiesTables: ['telemetry_events', 'device_sessions', 'usage_logs'],
+    sampleFields: ['session_id', 'device_id', 'event_type', 'timestamp'],
+    reactorRole: 'Stream and normalize telemetry events into structured formats for product and support analytics',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+  {
+    id: '44',
+    industry: 'High Tech/B2B',
+    title: 'Customer Success Signal Detection',
+    whyItMatters: 'Detect churn or expansion signals based on feature usage and support tickets',
+    dataSources: ['Product analytics', 'CRM', 'support systems'],
+    entitiesTables: ['usage_metrics', 'support_cases', 'customer_profiles'],
+    sampleFields: ['account_id', 'last_login', 'ticket_volume'],
+    reactorRole: 'Unify product, support, and CRM data to build health score triggers',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: '45',
+    industry: 'High Tech/B2B',
+    title: 'Trial-to-Paid Conversion Funnel',
+    whyItMatters: 'Improve free trial conversion by analyzing product usage patterns',
+    dataSources: ['Product logs', 'CRM', 'billing system'],
+    entitiesTables: ['trial_accounts', 'product_events', 'conversion_log'],
+    sampleFields: ['account_id', 'trial_start', 'active_features'],
+    reactorRole: 'Track engagement during trial and correlate to paid conversion rates',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-red'
+  },
+  {
+    id: '46',
+    industry: 'High Tech/B2B',
+    title: 'Support Ticket Auto-Triage Insights',
+    whyItMatters: 'Identify root causes and common escalations early',
+    dataSources: ['Zendesk', 'Jira', 'Salesforce'],
+    entitiesTables: ['support_cases', 'case_tags', 'time_to_resolution'],
+    sampleFields: ['ticket_id', 'priority', 'tags'],
+    reactorRole: 'Analyze support ticket patterns to improve resolution playbooks and routing',
+    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
+  },
+  {
+    id: '47',
+    industry: 'High Tech/B2B',
+    title: 'R&D Feedback Loop for Product Teams',
+    whyItMatters: 'Feed product feedback and defect data back into agile tools or dashboards',
+    dataSources: ['Support logs', 'GitHub/Jira', 'feedback portals'],
+    entitiesTables: ['feature_feedback', 'bug_reports', 'tickets'],
+    sampleFields: ['feature_id', 'bug_code', 'sentiment'],
+    reactorRole: 'Aggregate structured + unstructured inputs for prioritization and roadmap impact',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  {
+    id: '48',
+    industry: 'High Tech/B2B',
+    title: 'Customer Environment Sync',
+    whyItMatters: 'Map customer environments and deployment profiles for configuration intelligence and upgrades',
+    dataSources: ['Cloud config', 'deployment agents', 'CRM'],
+    entitiesTables: ['environment_profiles', 'instance_metadata', 'license_keys'],
+    sampleFields: ['org_id', 'region', 'cloud_type', 'version'],
+    reactorRole: 'Create materialized environment summaries for CS, TAMs, and upgrade planning',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-soundcommerce-yellow'
+  },
+  {
+    id: '49',
+    industry: 'High Tech/B2B',
+    title: 'Enterprise Contract & Usage Alignment',
+    whyItMatters: 'Validate contracted license usage versus actual product consumption',
+    dataSources: ['Billing systems', 'product usage logs', 'Salesforce'],
+    entitiesTables: ['license_allocations', 'user_activity', 'billing_records'],
+    sampleFields: ['contract_id', 'seats_allocated', 'seats_used'],
+    reactorRole: 'Join license entitlements to product logs to find under- or over-utilization',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-medium-blue'
+  },
+  {
+    id: '50',
+    industry: 'High Tech/B2B',
+    title: 'Multi-Tenant Health Dashboard',
+    whyItMatters: 'Provide real-time insights into service uptime and tenant-specific SLAs',
+    dataSources: ['Monitoring tools', 'OpsDB', 'Cloud logs'],
+    entitiesTables: ['uptime_logs', 'tenant_configs', 'sla_events'],
+    sampleFields: ['tenant_id', 'uptime_pct', 'alert_count'],
+    reactorRole: 'Aggregate per-tenant service metrics for customer-facing status pages and internal ops views',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-reactor-red'
+  },
+  {
+    id: '51',
+    industry: 'High Tech/B2B',
+    title: 'Partner Channel Performance Tracker',
+    whyItMatters: 'Track partner-driven sales, adoption, and expansion across B2B channels',
+    dataSources: ['Salesforce', 'partner CRM', 'product telemetry'],
+    entitiesTables: ['partner_accounts', 'referrals', 'feature_usage'],
+    sampleFields: ['partner_id', 'revenue', 'adoption_curve'],
+    reactorRole: 'Combine CRM and telemetry to measure partner impact and incentive eligibility',
+    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
   }
 ];
