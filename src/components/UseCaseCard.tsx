@@ -49,24 +49,13 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
             </h3>
           </div>
           
-          <div className="space-y-4">
-            <div>
-              <h4 className="font-inter font-semibold text-sm text-white/90 mb-2">
-                Why It Matters
-              </h4>
-              <p className="font-inter text-sm text-white/85 leading-relaxed">
-                {whyItMatters}
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-inter font-semibold text-sm text-white/90 mb-2">
-                Reactor's Role
-              </h4>
-              <p className="font-inter text-sm text-white/85 leading-relaxed">
-                {reactorRole}
-              </p>
-            </div>
+          <div>
+            <h4 className="font-inter font-semibold text-sm text-white/90 mb-2">
+              Why It Matters
+            </h4>
+            <p className="font-inter text-sm text-white/85 leading-relaxed">
+              {whyItMatters}
+            </p>
           </div>
         </div>
 
@@ -80,6 +69,11 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
           </div>
           
           <div className="space-y-4 text-sm">
+            <div>
+              <h4 className="font-inter font-semibold text-reactor-blue mb-1">Reactor's Role</h4>
+              <p className="text-reactor-text-grey">{reactorRole}</p>
+            </div>
+            
             <div>
               <h4 className="font-inter font-semibold text-reactor-blue mb-1">Data Sources</h4>
               <p className="text-reactor-text-grey">{dataSources.join(', ')}</p>
