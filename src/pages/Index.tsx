@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FilterBar from '../components/FilterBar';
 import UseCaseCard from '../components/UseCaseCard';
 import ReactorLogo from '../components/ReactorLogo';
-import { useCases, industries, roles } from '../data/useCases';
+import { useCases, industries, roles } from '../data';
 
 const Index = () => {
   const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
