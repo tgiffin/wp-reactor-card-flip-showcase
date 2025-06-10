@@ -3,15 +3,35 @@ import React, { useState, useEffect } from 'react';
 import FilterBar from '../components/FilterBar';
 import UseCaseCard from '../components/UseCaseCard';
 import ReactorLogo from '../components/ReactorLogo';
-import { useCases, industries } from '../data/useCases';
+import { useCases, industries, roles } from '../data/useCases';
 
 const Index = () => {
   const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
+  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
   const [visibleCards, setVisibleCards] = useState<string[]>([]);
 
-  const filteredUseCases = selectedIndustries.length === 0 
-    ? useCases 
-    : useCases.filter(useCase => selectedIndustries.includes(useCase.industry));
+  const filteredUseCases = useCases.filter(useCase => {
+    const matchesIndustry = selectedIndustries.length === 0 || selectedIndustries.includes(useCase.industry);
+    const matchesRole = selectedRoles.length === 0 || (useCase.role && selectedRoles.includes(useCase.role));
+    
+    // If no filters are selected, show all
+    if (selectedIndustries.length === 0 && selectedRoles.length === 0) {
+      return true;
+    }
+    
+    // If only industry filters are selected
+    if (selectedIndustries.length > 0 && selectedRoles.length === 0) {
+      return matchesIndustry;
+    }
+    
+    // If only role filters are selected
+    if (selectedRoles.length > 0 && selectedIndustries.length === 0) {
+      return matchesRole;
+    }
+    
+    // If both filters are selected, use OR logic (union)
+    return matchesIndustry || matchesRole;
+  });
 
   const handleIndustryToggle = (industry: string) => {
     setSelectedIndustries(prev => 
@@ -19,6 +39,19 @@ const Index = () => {
         ? prev.filter(i => i !== industry)
         : [...prev, industry]
     );
+  };
+
+  const handleRoleToggle = (role: string) => {
+    setSelectedRoles(prev => 
+      prev.includes(role) 
+        ? prev.filter(r => r !== role)
+        : [...prev, role]
+    );
+  };
+
+  const handleClearFilters = () => {
+    setSelectedIndustries([]);
+    setSelectedRoles([]);
   };
 
   // Intersection Observer for scroll animations
@@ -67,8 +100,14 @@ const Index = () => {
       {/* Filter Bar */}
       <FilterBar 
         industries={industries}
+        roles={roles}
         selectedIndustries={selectedIndustries}
+        selectedRoles={selectedRoles}
         onIndustryToggle={handleIndustryToggle}
+        onRoleToggle={handleRoleToggle}
+        onClearFilters={handleClearFilters}
+        filteredCount={filteredUseCases.length}
+        totalCount={useCases.length}
       />
 
       {/* Cards Grid */}
@@ -105,7 +144,7 @@ const Index = () => {
         {filteredUseCases.length === 0 && (
           <div className="text-center py-16">
             <p className="font-inter text-lg text-reactor-text-grey">
-              No use cases found for the selected industries.
+              No use cases found for the selected filters.
             </p>
           </div>
         )}
