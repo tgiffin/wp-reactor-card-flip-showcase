@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import FilterBar from '../components/FilterBar';
 import UseCaseCard from '../components/UseCaseCard';
@@ -11,7 +10,7 @@ const Index = () => {
   const [visibleCards, setVisibleCards] = useState<string[]>([]);
 
   const filteredUseCases = useCases.filter(useCase => {
-    const matchesIndustry = selectedIndustries.length === 0 || selectedIndustries.includes(useCase.industry);
+    const matchesIndustry = selectedIndustries.length === 0 || (useCase.industry && selectedIndustries.includes(useCase.industry));
     const matchesRole = selectedRoles.length === 0 || (useCase.role && selectedRoles.includes(useCase.role));
     
     // If no filters are selected, show all

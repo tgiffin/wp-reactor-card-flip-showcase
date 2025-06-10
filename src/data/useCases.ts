@@ -1,6 +1,6 @@
 export interface UseCase {
   id: string;
-  industry: string;
+  industry?: string;
   role?: string;
   title: string;
   whyItMatters: string;
@@ -12,11 +12,10 @@ export interface UseCase {
 }
 
 export const useCases: UseCase[] = [
-  // Role-based Use Cases
+  // Role-based Use Cases (no industry assignment)
   {
     id: 'role-1',
     role: 'Data Engineer',
-    industry: 'Technology',
     title: 'Schema Drift Detection & Auto-Healing',
     whyItMatters: 'Prevent pipeline breaks and manual intervention from unexpected schema changes',
     dataSources: ['APIs', 'SaaS connectors', 'Kafka topics'],
@@ -28,7 +27,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-2',
     role: 'Data Engineer',
-    industry: 'Technology',
     title: 'Multi-Tenant Pipeline Configuration',
     whyItMatters: 'Simplify onboarding of new data sources or clients by enabling parameterized pipelines',
     dataSources: ['Multi-client APIs', 'tenant configs'],
@@ -40,7 +38,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-3',
     role: 'Data Scientist',
-    industry: 'Technology',
     title: 'Vector Database Sync for Embedding Search',
     whyItMatters: 'Enable document and event retrieval for LLM-powered search and RAG applications',
     dataSources: ['Unstructured text', 'event logs'],
@@ -52,7 +49,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-4',
     role: 'Data Scientist',
-    industry: 'Technology',
     title: 'Feature Store Feed for AI/ML Models',
     whyItMatters: 'Maintain reliable, up-to-date feature data for training and real-time inference',
     dataSources: ['EDW', 'APIs', 'IoT feeds'],
@@ -64,7 +60,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-5',
     role: 'Data Scientist',
-    industry: 'Technology',
     title: 'MCP (Multi-Channel Prediction) Pipeline',
     whyItMatters: 'Feed clickstream and conversion data into models predicting behavior across channels',
     dataSources: ['Web/app analytics', 'CRM', 'Ad platforms'],
@@ -76,7 +71,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-6',
     role: 'Data Analyst',
-    industry: 'Technology',
     title: 'Business KPI Layer for Self-Service BI',
     whyItMatters: 'Create unified reporting models for analysts to build dashboards quickly',
     dataSources: ['EDW', 'Excel/Sheets', 'CRM'],
@@ -88,7 +82,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-7',
     role: 'Data Analyst',
-    industry: 'Technology',
     title: 'Change Data Capture Reporting',
     whyItMatters: 'Surface meaningful changes (vs. full reloads) in operations or customer data',
     dataSources: ['CRM', 'ERP', 'Billing'],
@@ -100,7 +93,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-8',
     role: 'ML/Ops Engineer',
-    industry: 'Technology',
     title: 'Model Drift Monitoring Pipeline',
     whyItMatters: 'Detect when deployed ML models begin performing poorly over time',
     dataSources: ['Prediction APIs', 'Feature store'],
@@ -112,7 +104,6 @@ export const useCases: UseCase[] = [
   {
     id: 'role-9',
     role: 'Data Governance / Security',
-    industry: 'Technology',
     title: 'Field-Level Lineage and Access Audit',
     whyItMatters: 'Ensure data privacy, regulatory compliance, and traceability',
     dataSources: ['EDW logs', 'RBAC systems'],
@@ -609,8 +600,7 @@ export const industries = [
   'Retail Financial Services',
   'Healthcare',
   'Elder Care',
-  'Automotive',
-  'Technology'
+  'Automotive'
 ];
 
 export const roles = [
