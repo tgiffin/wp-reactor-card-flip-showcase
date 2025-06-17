@@ -400,28 +400,6 @@ export const industryUseCases: UseCase[] = [
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
   {
-    id: 'automotive-2',
-    industry: 'Automotive',
-    title: 'Autonomous Driving',
-    whyItMatters: 'Improve safety and efficiency by enabling autonomous driving',
-    dataSources: ['Sensor data', 'mapping data', 'traffic data'],
-    entitiesTables: ['vehicles', 'sensors', 'driving_events'],
-    sampleFields: ['vehicle_id', 'sensor_type', 'sensor_value'],
-    reactorRole: 'Enable autonomous driving and improve safety',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
-  },
-  {
-    id: 'automotive-3',
-    industry: 'Automotive',
-    title: 'Personalized Driving Experience',
-    whyItMatters: 'Improve customer satisfaction by personalizing the driving experience',
-    dataSources: ['Driver preferences', 'vehicle data', 'location data'],
-    entitiesTables: ['vehicles', 'drivers', 'driving_preferences'],
-    sampleFields: ['vehicle_id', 'driver_id', 'preference_type'],
-    reactorRole: 'Personalize the driving experience and improve customer satisfaction',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
-  },
-  {
     id: 'automotive-4',
     industry: 'Automotive',
     title: 'Fleet Management Optimization',
@@ -431,17 +409,6 @@ export const industryUseCases: UseCase[] = [
     sampleFields: ['vehicle_id', 'route_efficiency', 'fuel_usage'],
     reactorRole: 'Optimize fleet routes and monitor vehicle performance',
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
-  },
-  {
-    id: 'automotive-5',
-    industry: 'Automotive',
-    title: 'Connected Car Services',
-    whyItMatters: 'Enhance vehicle connectivity and provide value-added services',
-    dataSources: ['Telematics data', 'mobile apps', 'service history'],
-    entitiesTables: ['connected_vehicles', 'services', 'usage_patterns'],
-    sampleFields: ['vehicle_id', 'service_type', 'usage_frequency'],
-    reactorRole: 'Enable connected services and improve user experience',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
   
   // High Tech/B2B Use Cases
