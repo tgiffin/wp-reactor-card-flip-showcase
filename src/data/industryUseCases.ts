@@ -363,63 +363,6 @@ export const industryUseCases: UseCase[] = [
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-soundcommerce-yellow'
   },
 
-  // Healthcare Use Cases
-  {
-    id: 'healthcare-1',
-    industry: 'Healthcare',
-    title: 'Predictive Diagnostics',
-    whyItMatters: 'Improve patient outcomes by predicting diseases early',
-    dataSources: ['Medical records', 'genomic data', 'wearable sensor data'],
-    entitiesTables: ['patients', 'diagnostics', 'disease_predictions'],
-    sampleFields: ['patient_id', 'disease_id', 'prediction_probability'],
-    reactorRole: 'Predict diseases early and improve patient outcomes',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
-  },
-  {
-    id: 'healthcare-2',
-    industry: 'Healthcare',
-    title: 'Personalized Treatment Plans',
-    whyItMatters: 'Improve treatment effectiveness by personalizing treatment plans',
-    dataSources: ['Medical history', 'genomic data', 'treatment outcomes'],
-    entitiesTables: ['patients', 'treatments', 'treatment_plans'],
-    sampleFields: ['patient_id', 'treatment_id', 'treatment_effectiveness'],
-    reactorRole: 'Personalize treatment plans and improve treatment effectiveness',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
-  },
-  {
-    id: 'healthcare-3',
-    industry: 'Healthcare',
-    title: 'Operational Efficiency',
-    whyItMatters: 'Reduce costs and improve patient care by optimizing operations',
-    dataSources: ['Patient flow data', 'resource utilization', 'staff schedules'],
-    entitiesTables: ['patients', 'resources', 'operational_metrics'],
-    sampleFields: ['patient_id', 'resource_id', 'utilization_rate'],
-    reactorRole: 'Optimize operations and improve patient care',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
-  },
-  {
-    id: 'healthcare-4',
-    industry: 'Healthcare',
-    title: 'Drug Discovery Acceleration',
-    whyItMatters: 'Speed up drug development through AI-powered compound analysis',
-    dataSources: ['Molecular data', 'clinical trials', 'research papers'],
-    entitiesTables: ['compounds', 'trial_results', 'efficacy_scores'],
-    sampleFields: ['compound_id', 'efficacy_score', 'side_effects'],
-    reactorRole: 'Analyze molecular data to identify promising drug compounds',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
-  },
-  {
-    id: 'healthcare-5',
-    industry: 'Healthcare',
-    title: 'Population Health Management',
-    whyItMatters: 'Improve community health outcomes through population-level insights',
-    dataSources: ['EHR data', 'public health records', 'social determinants'],
-    entitiesTables: ['populations', 'health_indicators', 'intervention_outcomes'],
-    sampleFields: ['population_id', 'health_score', 'risk_factors'],
-    reactorRole: 'Analyze population health trends and recommend interventions',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-medium-blue'
-  },
-
   // Elder Care Use Cases
   {
     id: 'eldercare-1',
