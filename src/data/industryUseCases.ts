@@ -1,3 +1,4 @@
+
 import { UseCase } from './types';
 
 export const industryUseCases: UseCase[] = [
@@ -35,6 +36,28 @@ export const industryUseCases: UseCase[] = [
     reactorRole: 'Segment customers based on behavior and demographics',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-reactor-dark-blue'
   },
+  {
+    id: 'retail-4',
+    industry: 'Retail',
+    title: 'Real-time Price Competition Analysis',
+    whyItMatters: 'Stay competitive by monitoring competitor pricing and adjusting in real-time',
+    dataSources: ['Competitor websites', 'pricing APIs', 'market data'],
+    entitiesTables: ['products', 'competitor_prices', 'price_history'],
+    sampleFields: ['product_id', 'competitor_id', 'price_difference'],
+    reactorRole: 'Monitor competitive pricing and trigger price adjustments',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'retail-5',
+    industry: 'Retail',
+    title: 'Supply Chain Visibility',
+    whyItMatters: 'Improve supply chain efficiency by tracking products from source to shelf',
+    dataSources: ['Supplier data', 'shipping logs', 'warehouse systems'],
+    entitiesTables: ['shipments', 'suppliers', 'inventory_tracking'],
+    sampleFields: ['shipment_id', 'supplier_id', 'delivery_status'],
+    reactorRole: 'Provide end-to-end supply chain visibility and alerts',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-blue'
+  },
 
   // Travel & Hospitality Use Cases
   {
@@ -69,6 +92,28 @@ export const industryUseCases: UseCase[] = [
     sampleFields: ['staff_id', 'room_id', 'resource_type'],
     reactorRole: 'Optimize resource allocation and improve operational efficiency',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'travel-4',
+    industry: 'Travel & Hospitality',
+    title: 'Guest Experience Analytics',
+    whyItMatters: 'Enhance guest satisfaction by analyzing feedback and behavior patterns',
+    dataSources: ['Guest reviews', 'service interactions', 'amenity usage'],
+    entitiesTables: ['guests', 'feedback', 'service_quality'],
+    sampleFields: ['guest_id', 'satisfaction_score', 'service_type'],
+    reactorRole: 'Analyze guest experience data to improve service quality',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
+  },
+  {
+    id: 'travel-5',
+    industry: 'Travel & Hospitality',
+    title: 'Predictive Maintenance for Hotels',
+    whyItMatters: 'Reduce downtime and maintenance costs by predicting equipment failures',
+    dataSources: ['IoT sensors', 'maintenance logs', 'environmental data'],
+    entitiesTables: ['equipment', 'maintenance_schedules', 'sensor_data'],
+    sampleFields: ['equipment_id', 'sensor_reading', 'failure_probability'],
+    reactorRole: 'Predict equipment failures and schedule preventive maintenance',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-medium-blue'
   },
 
   // Consumer Products Use Cases
@@ -116,6 +161,28 @@ export const industryUseCases: UseCase[] = [
     reactorRole: 'Route data based on region',
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-dark-blue'
   },
+  {
+    id: 'consumer-5',
+    industry: 'Consumer Products',
+    title: 'Product Lifecycle Management',
+    whyItMatters: 'Optimize product development cycles and market timing',
+    dataSources: ['R&D data', 'market research', 'competitor analysis'],
+    entitiesTables: ['products', 'development_stages', 'market_readiness'],
+    sampleFields: ['product_id', 'stage', 'readiness_score'],
+    reactorRole: 'Track product development and optimize launch timing',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'consumer-6',
+    industry: 'Consumer Products',
+    title: 'Customer Lifetime Value Prediction',
+    whyItMatters: 'Focus marketing spend on high-value customers',
+    dataSources: ['Purchase history', 'engagement data', 'demographic info'],
+    entitiesTables: ['customers', 'transactions', 'ltv_predictions'],
+    sampleFields: ['customer_id', 'predicted_ltv', 'confidence_score'],
+    reactorRole: 'Calculate and predict customer lifetime value',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-blue'
+  },
 
   // Media & Entertainment Use Cases
   {
@@ -150,6 +217,28 @@ export const industryUseCases: UseCase[] = [
     sampleFields: ['content_id', 'view_count', 'engagement_score'],
     reactorRole: 'Analyze content performance and optimize content strategy',
     gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  {
+    id: 'media-4',
+    industry: 'Media & Entertainment',
+    title: 'Real-time Streaming Analytics',
+    whyItMatters: 'Optimize streaming quality and detect issues in real-time',
+    dataSources: ['Streaming logs', 'network data', 'device metrics'],
+    entitiesTables: ['streams', 'quality_metrics', 'performance_alerts'],
+    sampleFields: ['stream_id', 'quality_score', 'buffering_events'],
+    reactorRole: 'Monitor streaming performance and optimize delivery',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+  {
+    id: 'media-5',
+    industry: 'Media & Entertainment',
+    title: 'Social Media Trend Analysis',
+    whyItMatters: 'Create trending content by analyzing social media patterns',
+    dataSources: ['Social platforms', 'hashtag data', 'viral content'],
+    entitiesTables: ['trends', 'social_metrics', 'content_virality'],
+    sampleFields: ['trend_id', 'engagement_rate', 'virality_score'],
+    reactorRole: 'Identify trending topics and predict content success',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
 
   // Retail Financial Services Use Cases
@@ -186,6 +275,28 @@ export const industryUseCases: UseCase[] = [
     reactorRole: 'Predict customer churn and reduce customer attrition',
     gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
   },
+  {
+    id: 'finance-4',
+    industry: 'Retail Financial Services',
+    title: 'Algorithmic Trading',
+    whyItMatters: 'Optimize investment returns through data-driven trading strategies',
+    dataSources: ['Market data', 'economic indicators', 'news feeds'],
+    entitiesTables: ['trades', 'market_signals', 'portfolio_performance'],
+    sampleFields: ['trade_id', 'signal_strength', 'expected_return'],
+    reactorRole: 'Execute algorithmic trading strategies based on market signals',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  {
+    id: 'finance-5',
+    industry: 'Retail Financial Services',
+    title: 'Regulatory Compliance Monitoring',
+    whyItMatters: 'Ensure compliance with financial regulations and avoid penalties',
+    dataSources: ['Transaction logs', 'regulatory rules', 'audit trails'],
+    entitiesTables: ['compliance_checks', 'violations', 'audit_reports'],
+    sampleFields: ['check_id', 'violation_type', 'severity_level'],
+    reactorRole: 'Monitor transactions for regulatory compliance violations',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-soundcommerce-yellow'
+  },
 
   // Healthcare Use Cases
   {
@@ -220,6 +331,28 @@ export const industryUseCases: UseCase[] = [
     sampleFields: ['patient_id', 'resource_id', 'utilization_rate'],
     reactorRole: 'Optimize operations and improve patient care',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'healthcare-4',
+    industry: 'Healthcare',
+    title: 'Drug Discovery Acceleration',
+    whyItMatters: 'Speed up drug development through AI-powered compound analysis',
+    dataSources: ['Molecular data', 'clinical trials', 'research papers'],
+    entitiesTables: ['compounds', 'trial_results', 'efficacy_scores'],
+    sampleFields: ['compound_id', 'efficacy_score', 'side_effects'],
+    reactorRole: 'Analyze molecular data to identify promising drug compounds',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
+  },
+  {
+    id: 'healthcare-5',
+    industry: 'Healthcare',
+    title: 'Population Health Management',
+    whyItMatters: 'Improve community health outcomes through population-level insights',
+    dataSources: ['EHR data', 'public health records', 'social determinants'],
+    entitiesTables: ['populations', 'health_indicators', 'intervention_outcomes'],
+    sampleFields: ['population_id', 'health_score', 'risk_factors'],
+    reactorRole: 'Analyze population health trends and recommend interventions',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-medium-blue'
   },
 
   // Elder Care Use Cases
@@ -256,6 +389,17 @@ export const industryUseCases: UseCase[] = [
     reactorRole: 'Improve medication adherence and reduce adverse drug events',
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
   },
+  {
+    id: 'eldercare-4',
+    industry: 'Elder Care',
+    title: 'Cognitive Health Monitoring',
+    whyItMatters: 'Early detection of cognitive decline to improve quality of life',
+    dataSources: ['Cognitive assessments', 'daily activity logs', 'speech patterns'],
+    entitiesTables: ['patients', 'cognitive_scores', 'decline_indicators'],
+    sampleFields: ['patient_id', 'cognitive_score', 'decline_rate'],
+    reactorRole: 'Monitor cognitive health and detect early signs of decline',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
 
   // Automotive Use Cases
   {
@@ -290,6 +434,28 @@ export const industryUseCases: UseCase[] = [
     sampleFields: ['vehicle_id', 'driver_id', 'preference_type'],
     reactorRole: 'Personalize the driving experience and improve customer satisfaction',
     gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  {
+    id: 'automotive-4',
+    industry: 'Automotive',
+    title: 'Fleet Management Optimization',
+    whyItMatters: 'Optimize fleet operations and reduce operational costs',
+    dataSources: ['GPS tracking', 'fuel consumption', 'driver behavior'],
+    entitiesTables: ['fleet_vehicles', 'routes', 'efficiency_metrics'],
+    sampleFields: ['vehicle_id', 'route_efficiency', 'fuel_usage'],
+    reactorRole: 'Optimize fleet routes and monitor vehicle performance',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+  {
+    id: 'automotive-5',
+    industry: 'Automotive',
+    title: 'Connected Car Services',
+    whyItMatters: 'Enhance vehicle connectivity and provide value-added services',
+    dataSources: ['Telematics data', 'mobile apps', 'service history'],
+    entitiesTables: ['connected_vehicles', 'services', 'usage_patterns'],
+    sampleFields: ['vehicle_id', 'service_type', 'usage_frequency'],
+    reactorRole: 'Enable connected services and improve user experience',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
   
   // High Tech/B2B Use Cases
@@ -336,16 +502,5 @@ export const industryUseCases: UseCase[] = [
     sampleFields: ['account_id', 'health_score', 'churn_risk'],
     reactorRole: 'Combine multiple signals to calculate and update customer health metrics',
     gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-medium-blue'
-  },
-  {
-    id: 'hightech-5',
-    industry: 'High Tech/B2B',
-    title: 'Geo-specific Compliance Routing',
-    whyItMatters: 'Ensure data residency requirements are met for global customers',
-    dataSources: ['Customer geo data', 'compliance rules'],
-    entitiesTables: ['data_residency', 'compliance_rules', 'routing_policies'],
-    sampleFields: ['region', 'data_classification', 'storage_location'],
-    reactorRole: 'Route data based on region',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-dark-blue'
   }
 ];
