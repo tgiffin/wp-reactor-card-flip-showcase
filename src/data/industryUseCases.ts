@@ -105,6 +105,17 @@ export const industryUseCases: UseCase[] = [
     reactorRole: 'Optimize the supply chain and reduce costs',
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
   },
+  {
+    id: 'consumer-4',
+    industry: 'Consumer Products',
+    title: 'Geo-specific Compliance Routing',
+    whyItMatters: 'Ensure data residency requirements are met for global customers',
+    dataSources: ['Customer geo data', 'compliance rules'],
+    entitiesTables: ['data_residency', 'compliance_rules', 'routing_policies'],
+    sampleFields: ['region', 'data_classification', 'storage_location'],
+    reactorRole: 'Route data based on region',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-dark-blue'
+  },
 
   // Media & Entertainment Use Cases
   {
