@@ -14,7 +14,7 @@ export const industries = [
   'Financial Services',
   'Elder Care',
   'Automotive',
-  'High Tech/B2B'
+  'B2B / High Tech'
 ];
 
 export const roles = [
