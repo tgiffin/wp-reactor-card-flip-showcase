@@ -1,582 +1,340 @@
 import { UseCase } from './types';
 
 export const industryUseCases: UseCase[] = [
-  // Retail
+  // Retail Use Cases
   {
-    id: '1',
+    id: 'retail-1',
     industry: 'Retail',
-    title: 'SKU Performance Snapshot',
-    whyItMatters: 'Identify top/bottom sellers by store to improve merchandising decisions',
-    dataSources: ['POS', 'eComm', 'WMS'],
-    entitiesTables: ['sales_transactions', 'product_catalog', 'store_locations'],
-    sampleFields: ['sku_id', 'revenue', 'quantity', 'store_id', 'timestamp'],
-    reactorRole: 'Ingest and standardize SKU & sales data across systems; unify for SKU-level insights',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
-  },
-  {
-    id: '2',
-    industry: 'Retail',
-    title: 'In-store vs Online Sales Comparison',
-    whyItMatters: 'Evaluate contribution and margin by sales channel',
-    dataSources: ['POS', 'eComm'],
-    entitiesTables: ['sales_transactions'],
-    sampleFields: ['channel', 'sku_id', 'revenue'],
-    reactorRole: 'Join POS and online transactions with channel metadata',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
-  },
-  {
-    id: '3',
-    industry: 'Retail',
-    title: 'Inventory Sync Check',
-    whyItMatters: 'Detect inventory mismatches to avoid fulfillment errors',
-    dataSources: ['ERP', 'WMS'],
-    entitiesTables: ['inventory_snapshots', 'stock_transfers'],
-    sampleFields: ['sku_id', 'location_id', 'quantity_on_hand'],
-    reactorRole: 'Detect deltas between systems for alerts/QA',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-red'
-  },
-  {
-    id: '4',
-    industry: 'Retail',
-    title: 'Google Sheets as Control Source',
-    whyItMatters: 'Allow non-tech users to override pricing/inventory logic',
-    dataSources: ['Google Sheets'],
-    entitiesTables: ['manager_overrides'],
-    sampleFields: ['sku_id', 'override_price', 'notes'],
-    reactorRole: 'Merge override sheet with pricing engine pipeline',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
-  },
-  {
-    id: '5',
-    industry: 'Retail',
-    title: 'Loyalty Enrollment Funnel',
-    whyItMatters: 'Understand drop-off in loyalty signups across platforms',
-    dataSources: ['CRM', 'Website', 'ESP'],
-    entitiesTables: ['signups', 'campaigns', 'customer_profiles'],
-    sampleFields: ['customer_id', 'source', 'timestamp'],
-    reactorRole: 'Join signup, campaign, and profile to track funnel stages',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
-  },
-  {
-    id: '6',
-    industry: 'Retail',
-    title: 'Unified SKU Catalog for ML Models',
-    whyItMatters: 'Power recommendations & dynamic pricing with clean product data',
-    dataSources: ['PIM', 'ERP', 'eComm'],
-    entitiesTables: ['product_catalog'],
-    sampleFields: ['sku_id', 'attributes', 'availability'],
-    reactorRole: 'Cleanse, unify, and validate catalog data for ML readiness',
+    title: 'Personalized Product Recommendations',
+    whyItMatters: 'Increase sales and customer loyalty by providing tailored product suggestions',
+    dataSources: ['Web browsing history', 'purchase history', 'customer profiles'],
+    entitiesTables: ['products', 'customers', 'recommendations'],
+    sampleFields: ['product_id', 'customer_id', 'recommendation_score'],
+    reactorRole: 'Analyze customer behavior and generate personalized recommendations',
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-soundcommerce-yellow'
   },
   {
-    id: '7',
+    id: 'retail-2',
     industry: 'Retail',
-    title: 'Real-Time Inventory Feeds',
-    whyItMatters: 'Enable real-time stock visibility across channels',
-    dataSources: ['WMS', 'RFID', 'POS'],
-    entitiesTables: ['inventory_events'],
-    sampleFields: ['sku_id', 'delta_qty', 'timestamp'],
-    reactorRole: 'Stream deltas via Kafka, push to fulfillment APIs',
+    title: 'Inventory Optimization',
+    whyItMatters: 'Reduce stockouts and overstocking by predicting demand accurately',
+    dataSources: ['Sales data', 'weather forecasts', 'promotional calendars'],
+    entitiesTables: ['products', 'inventory', 'sales_forecasts'],
+    sampleFields: ['product_id', 'location_id', 'predicted_demand'],
+    reactorRole: 'Forecast demand and optimize inventory levels across locations',
     gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-medium-blue'
   },
   {
-    id: '8',
+    id: 'retail-3',
     industry: 'Retail',
-    title: 'Campaign Attribution to SKU Sales',
-    whyItMatters: 'Tie ad spend to sales outcomes by product',
-    dataSources: ['Meta', 'Google', 'eComm'],
-    entitiesTables: ['campaign_clicks', 'sessions', 'orders'],
-    sampleFields: ['click_id', 'session_id', 'sku_id'],
-    reactorRole: 'Link touchpoints to transactions through identity joins',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-blue'
-  },
-  {
-    id: '9',
-    industry: 'Retail',
-    title: 'Geo-privacy Enforcement',
-    whyItMatters: 'Comply with GDPR/CCPA by routing or masking PII',
-    dataSources: ['CRM', 'Orders', 'Support'],
-    entitiesTables: ['customer_profiles', 'support_cases'],
-    sampleFields: ['region', 'consent_flag', 'pii_fields'],
-    reactorRole: 'Apply region-aware transformations or redactions',
+    title: 'Customer Segmentation',
+    whyItMatters: 'Improve marketing ROI by targeting specific customer groups with relevant campaigns',
+    dataSources: ['Purchase history', 'demographics', 'survey responses'],
+    entitiesTables: ['customers', 'segments', 'campaign_performance'],
+    sampleFields: ['customer_id', 'segment_id', 'campaign_response_rate'],
+    reactorRole: 'Segment customers based on behavior and demographics',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-reactor-dark-blue'
   },
-  {
-    id: '10',
-    industry: 'Retail',
-    title: 'Product Return Analysis',
-    whyItMatters: 'Uncover costly return patterns to improve CX & margins',
-    dataSources: ['Returns portal', 'OMS', 'CRM'],
-    entitiesTables: ['returns', 'orders', 'support_tickets'],
-    sampleFields: ['sku_id', 'return_reason', 'region'],
-    reactorRole: 'Correlate returns to operational metadata',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-soundcommerce-yellow'
-  },
 
-  // Travel & Hospitality
+  // Travel & Hospitality Use Cases
   {
-    id: '11',
+    id: 'travel-1',
     industry: 'Travel & Hospitality',
-    title: 'Booking Funnel Analysis',
-    whyItMatters: 'Reduce booking drop-off by analyzing funnel step exits',
-    dataSources: ['Web events', 'Booking system'],
-    entitiesTables: ['booking_events', 'user_sessions'],
-    sampleFields: ['step_id', 'timestamp', 'user_id'],
-    reactorRole: 'Join step and session logs to build conversion funnel',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-red'
-  },
-  {
-    id: '12',
-    industry: 'Travel & Hospitality',
-    title: 'Multi-brand Guest Identity Merge',
-    whyItMatters: 'Resolve guest identities across brand portfolios for unified CRM insights',
-    dataSources: ['Booking', 'Loyalty', 'CDP'],
-    entitiesTables: ['guest_profiles', 'loyalty_accounts', 'booking_history'],
-    sampleFields: ['guest_id', 'loyalty_id', 'email'],
-    reactorRole: 'Stitch identities using deterministic and fuzzy logic',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
-  },
-  {
-    id: '13',
-    industry: 'Travel & Hospitality',
-    title: 'Property Performance Dashboard',
-    whyItMatters: 'Provide management with key daily KPIs across a sample of properties',
-    dataSources: ['PMS', 'housekeeping', 'ops'],
-    entitiesTables: ['property_kpis', 'room_status', 'revenue_data'],
-    sampleFields: ['property_id', 'RevPAR', 'ADR'],
-    reactorRole: 'Aggregate and align daily feeds for exec dashboards',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
-  },
-  {
-    id: '14',
-    industry: 'Travel & Hospitality',
-    title: 'Email Campaign Engagement',
-    whyItMatters: 'Evaluate email effectiveness in driving bookings or upgrades',
-    dataSources: ['ESP', 'CRM', 'Booking'],
-    entitiesTables: ['campaign_stats', 'email_opens', 'bookings'],
-    sampleFields: ['campaign_id', 'open_rate', 'conversion'],
-    reactorRole: 'Join email metadata with bookings for performance',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
-  },
-  {
-    id: '15',
-    industry: 'Travel & Hospitality',
-    title: 'VIP Guest Flagging',
-    whyItMatters: 'Identify high-value guests based on behavior for personalization pilots',
-    dataSources: ['CDP', 'PMS', 'Booking'],
-    entitiesTables: ['guest_scores', 'stay_history'],
-    sampleFields: ['guest_id', 'stay_count', 'total_spend'],
-    reactorRole: 'Tag and segment guests with enriched profile data',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-red'
-  },
-  {
-    id: '16',
-    industry: 'Travel & Hospitality',
-    title: 'Unified Guest Profile',
-    whyItMatters: 'Enable 1:1 personalization by combining touchpoints into a single profile',
-    dataSources: ['CDP', 'CRM', 'PMS', 'Loyalty'],
-    entitiesTables: ['unified_guest', 'touchpoints', 'preferences'],
-    sampleFields: ['guest_id', 'preferences', 'total_spend'],
-    reactorRole: 'Merge guest IDs across systems to central profile',
+    title: 'Dynamic Pricing',
+    whyItMatters: 'Maximize revenue by adjusting prices based on demand and competitor pricing',
+    dataSources: ['Booking data', 'competitor prices', 'event schedules'],
+    entitiesTables: ['rooms', 'flights', 'pricing_rules'],
+    sampleFields: ['room_id', 'flight_number', 'price'],
+    reactorRole: 'Analyze market conditions and adjust prices in real-time',
     gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
   },
   {
-    id: '17',
+    id: 'travel-2',
     industry: 'Travel & Hospitality',
-    title: 'Property Benchmarking',
-    whyItMatters: 'Compare performance KPIs regionally for exec dashboards',
-    dataSources: ['PMS', 'Ops'],
-    entitiesTables: ['property_metrics', 'benchmark_rules'],
-    sampleFields: ['occupancy', 'net_margin', 'score'],
-    reactorRole: 'Normalize KPIs and apply region/format segmentation',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-red'
-  },
-  {
-    id: '18',
-    industry: 'Travel & Hospitality',
-    title: 'Offer Personalization Engine',
-    whyItMatters: 'Deliver targeted offers based on guest behavior and preferences',
-    dataSources: ['Booking', 'Email', 'Loyalty'],
-    entitiesTables: ['guest_segments', 'offers', 'clickthroughs'],
-    sampleFields: ['guest_id', 'segment_id', 'conversion'],
-    reactorRole: 'Feed CDP or RT-CDP with behavior-enriched segments',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-soundcommerce-yellow'
-  },
-  {
-    id: '19',
-    industry: 'Travel & Hospitality',
-    title: 'GDPR and Consent Routing',
-    whyItMatters: 'Ensure compliance by only processing data users have opted into',
-    dataSources: ['Consent platform', 'CRM'],
-    entitiesTables: ['consent_flags', 'guest_data'],
-    sampleFields: ['guest_id', 'consent_flag'],
-    reactorRole: 'Route and mask PII based on consent and region',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-reactor-dark-blue'
-  },
-
-  // Consumer Products
-  {
-    id: '20',
-    industry: 'Consumer Products',
-    title: 'Appliance Sensor Event Stream',
-    whyItMatters: 'Detect performance issues or safety risks by analyzing real-time telemetry',
-    dataSources: ['IoT', 'Firmware logs'],
-    entitiesTables: ['sensor_readings', 'device_registry'],
-    sampleFields: ['device_id', 'temp', 'error_code'],
-    reactorRole: 'Ingest telemetry and normalize into structured events',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
-  },
-  {
-    id: '21',
-    industry: 'Consumer Products',
-    title: 'Product Registration Funnel',
-    whyItMatters: 'Analyze drop-off and channel mix in product registrations',
-    dataSources: ['CRM', 'Web/App forms'],
-    entitiesTables: ['registrations', 'device_metadata'],
-    sampleFields: ['product_id', 'registration_channel'],
-    reactorRole: 'Unify multiple registration channels',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-red'
-  },
-  {
-    id: '22',
-    industry: 'Consumer Products',
-    title: 'Field Issue Pattern Detection',
-    whyItMatters: 'Predict common defects using warranty and repair data',
-    dataSources: ['Warranty', 'Repair', 'Telemetry'],
-    entitiesTables: ['repairs', 'warranty_claims'],
-    sampleFields: ['device_model', 'issue_code'],
-    reactorRole: 'Correlate issues with usage data for QA & CX teams',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-blue'
-  },
-  {
-    id: '23',
-    industry: 'Consumer Products',
-    title: 'Geo-Specific Compliance Routing',
-    whyItMatters: 'Ensure data handling is compliant by region (e.g., GDPR, RoHS)',
-    dataSources: ['CRM', 'Usage logs'],
-    entitiesTables: ['user_metadata', 'geo_compliance_flags'],
-    sampleFields: ['region', 'data_type'],
-    reactorRole: 'Route & mask data based on region',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-dark-blue'
-  },
-
-  // Healthcare
-  {
-    id: '24',
-    industry: 'Healthcare',
-    title: 'Patient Appointment No-show Prediction',
-    whyItMatters: 'Improve scheduling efficiency and reduce revenue loss from missed visits',
-    dataSources: ['EHR', 'Scheduling', 'CRM'],
-    entitiesTables: ['appointments', 'patients', 'history'],
-    sampleFields: ['patient_id', 'appointment_time', 'past_no_shows'],
-    reactorRole: 'Aggregate and feature engineer inputs for ML models',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-medium-blue'
-  },
-  {
-    id: '25',
-    industry: 'Healthcare',
-    title: 'Clinical Trial Eligibility Matcher',
-    whyItMatters: 'Speed up patient recruitment by matching records to trial criteria',
-    dataSources: ['EHR', 'Trial eligibility DB'],
-    entitiesTables: ['patient_conditions', 'medications', 'trial_rules'],
-    sampleFields: ['patient_id', 'ICD_code', 'criteria_met'],
-    reactorRole: 'Join and filter records based on multi-variable rulesets',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-soundcommerce-yellow'
-  },
-  {
-    id: '26',
-    industry: 'Healthcare',
-    title: 'Longitudinal Patient Record Consolidation',
-    whyItMatters: 'Create a full history for patients across visits, systems, and labs',
-    dataSources: ['EHR', 'Labs', 'Imaging systems'],
-    entitiesTables: ['encounters', 'lab_results', 'conditions'],
-    sampleFields: ['patient_id', 'encounter_id', 'diagnosis'],
-    reactorRole: 'Consolidate timeline into a unified patient view for clinical ops',
+    title: 'Personalized Travel Packages',
+    whyItMatters: 'Increase booking rates by offering customized travel packages to customers',
+    dataSources: ['Customer preferences', 'travel history', 'destination data'],
+    entitiesTables: ['customers', 'packages', 'recommendations'],
+    sampleFields: ['customer_id', 'package_id', 'recommendation_score'],
+    reactorRole: 'Create personalized travel packages based on customer data',
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
   },
   {
-    id: '27',
-    industry: 'Healthcare',
-    title: 'HIPAA-Compliant Data Sharing Layer',
-    whyItMatters: 'Enable downstream use of health data for research or analytics with full auditability',
-    dataSources: ['EHR', 'Access logs', 'Masking tools'],
-    entitiesTables: ['shared_views', 'access_audit', 'deid_mappings'],
-    sampleFields: ['user_id', 'access_time', 'table_accessed'],
-    reactorRole: 'Apply masking, logging, and routing for safe data usage',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-red'
+    id: 'travel-3',
+    industry: 'Travel & Hospitality',
+    title: 'Operational Efficiency',
+    whyItMatters: 'Improve resource allocation and reduce costs by optimizing operations',
+    dataSources: ['Staff schedules', 'room occupancy', 'supply chain data'],
+    entitiesTables: ['staff', 'rooms', 'resource_allocation'],
+    sampleFields: ['staff_id', 'room_id', 'resource_type'],
+    reactorRole: 'Optimize resource allocation and improve operational efficiency',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
 
-  // Elder Care
+  // Consumer Products Use Cases
   {
-    id: '28',
-    industry: 'Elder Care',
-    title: 'Fall Risk Indicator Dashboard',
-    whyItMatters: 'Track resident risk using movement patterns and incident logs',
-    dataSources: ['IoT sensors', 'Nurse logs', 'EHR-lite'],
-    entitiesTables: ['movement_events', 'incidents', 'resident_profiles'],
-    sampleFields: ['resident_id', 'gait_speed', 'falls_last_30d'],
-    reactorRole: 'Analyze patterns with streaming and batch feeds',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-soundcommerce-yellow'
+    id: 'consumer-1',
+    industry: 'Consumer Products',
+    title: 'Demand Forecasting',
+    whyItMatters: 'Optimize production and distribution by accurately predicting demand',
+    dataSources: ['Sales data', 'market trends', 'promotional activities'],
+    entitiesTables: ['products', 'sales', 'demand_forecasts'],
+    sampleFields: ['product_id', 'location_id', 'predicted_demand'],
+    reactorRole: 'Forecast demand and optimize production and distribution',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
   },
   {
-    id: '29',
+    id: 'consumer-2',
+    industry: 'Consumer Products',
+    title: 'Brand Sentiment Analysis',
+    whyItMatters: 'Improve brand perception by understanding customer sentiment',
+    dataSources: ['Social media', 'customer reviews', 'survey responses'],
+    entitiesTables: ['brand_sentiment', 'customer_feedback', 'market_trends'],
+    sampleFields: ['product_id', 'sentiment_score', 'feedback_text'],
+    reactorRole: 'Analyze customer feedback and improve brand perception',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  {
+    id: 'consumer-3',
+    industry: 'Consumer Products',
+    title: 'Supply Chain Optimization',
+    whyItMatters: 'Reduce costs and improve efficiency by optimizing the supply chain',
+    dataSources: ['Supplier data', 'logistics data', 'inventory levels'],
+    entitiesTables: ['suppliers', 'shipments', 'inventory'],
+    sampleFields: ['supplier_id', 'shipment_id', 'inventory_level'],
+    reactorRole: 'Optimize the supply chain and reduce costs',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+
+  // Media & Entertainment Use Cases
+  {
+    id: 'media-1',
+    industry: 'Media & Entertainment',
+    title: 'Content Recommendation',
+    whyItMatters: 'Increase user engagement by recommending relevant content',
+    dataSources: ['Viewing history', 'user profiles', 'content metadata'],
+    entitiesTables: ['users', 'content', 'recommendations'],
+    sampleFields: ['user_id', 'content_id', 'recommendation_score'],
+    reactorRole: 'Recommend relevant content to users',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'media-2',
+    industry: 'Media & Entertainment',
+    title: 'Audience Segmentation',
+    whyItMatters: 'Improve advertising ROI by targeting specific audience segments',
+    dataSources: ['Demographics', 'viewing habits', 'engagement metrics'],
+    entitiesTables: ['users', 'segments', 'advertising_performance'],
+    sampleFields: ['user_id', 'segment_id', 'ad_response_rate'],
+    reactorRole: 'Segment audiences and improve advertising ROI',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
+  },
+  {
+    id: 'media-3',
+    industry: 'Media & Entertainment',
+    title: 'Content Performance Analysis',
+    whyItMatters: 'Optimize content strategy by analyzing performance metrics',
+    dataSources: ['Viewing data', 'engagement metrics', 'feedback data'],
+    entitiesTables: ['content', 'performance_metrics', 'user_feedback'],
+    sampleFields: ['content_id', 'view_count', 'engagement_score'],
+    reactorRole: 'Analyze content performance and optimize content strategy',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+
+  // Retail Financial Services Use Cases
+  {
+    id: 'finance-1',
+    industry: 'Retail Financial Services',
+    title: 'Fraud Detection',
+    whyItMatters: 'Reduce financial losses by detecting fraudulent transactions',
+    dataSources: ['Transaction data', 'customer profiles', 'device information'],
+    entitiesTables: ['transactions', 'customers', 'fraud_alerts'],
+    sampleFields: ['transaction_id', 'customer_id', 'fraud_score'],
+    reactorRole: 'Detect fraudulent transactions and reduce financial losses',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+  {
+    id: 'finance-2',
+    industry: 'Retail Financial Services',
+    title: 'Credit Risk Assessment',
+    whyItMatters: 'Improve lending decisions by assessing credit risk accurately',
+    dataSources: ['Credit history', 'income data', 'employment history'],
+    entitiesTables: ['customers', 'credit_scores', 'loan_applications'],
+    sampleFields: ['customer_id', 'credit_score', 'loan_approval_probability'],
+    reactorRole: 'Assess credit risk and improve lending decisions',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'finance-3',
+    industry: 'Retail Financial Services',
+    title: 'Customer Churn Prediction',
+    whyItMatters: 'Reduce customer attrition by predicting churn',
+    dataSources: ['Transaction history', 'customer interactions', 'demographics'],
+    entitiesTables: ['customers', 'churn_predictions', 'retention_offers'],
+    sampleFields: ['customer_id', 'churn_probability', 'retention_offer_id'],
+    reactorRole: 'Predict customer churn and reduce customer attrition',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
+  },
+
+  // Healthcare Use Cases
+  {
+    id: 'healthcare-1',
+    industry: 'Healthcare',
+    title: 'Predictive Diagnostics',
+    whyItMatters: 'Improve patient outcomes by predicting diseases early',
+    dataSources: ['Medical records', 'genomic data', 'wearable sensor data'],
+    entitiesTables: ['patients', 'diagnostics', 'disease_predictions'],
+    sampleFields: ['patient_id', 'disease_id', 'prediction_probability'],
+    reactorRole: 'Predict diseases early and improve patient outcomes',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  {
+    id: 'healthcare-2',
+    industry: 'Healthcare',
+    title: 'Personalized Treatment Plans',
+    whyItMatters: 'Improve treatment effectiveness by personalizing treatment plans',
+    dataSources: ['Medical history', 'genomic data', 'treatment outcomes'],
+    entitiesTables: ['patients', 'treatments', 'treatment_plans'],
+    sampleFields: ['patient_id', 'treatment_id', 'treatment_effectiveness'],
+    reactorRole: 'Personalize treatment plans and improve treatment effectiveness',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+  {
+    id: 'healthcare-3',
+    industry: 'Healthcare',
+    title: 'Operational Efficiency',
+    whyItMatters: 'Reduce costs and improve patient care by optimizing operations',
+    dataSources: ['Patient flow data', 'resource utilization', 'staff schedules'],
+    entitiesTables: ['patients', 'resources', 'operational_metrics'],
+    sampleFields: ['patient_id', 'resource_id', 'utilization_rate'],
+    reactorRole: 'Optimize operations and improve patient care',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+
+  // Elder Care Use Cases
+  {
+    id: 'eldercare-1',
     industry: 'Elder Care',
-    title: 'Family Care Portal Data Feeds',
-    whyItMatters: 'Power family-facing portals with structured updates and alerts',
-    dataSources: ['Daily logs', 'Activities', 'Alerts'],
-    entitiesTables: ['daily_notes', 'event_feeds', 'medical_alerts'],
-    sampleFields: ['resident_id', 'mood_score', 'health_alert'],
-    reactorRole: 'Aggregate and expose trusted, limited-access records',
+    title: 'Remote Patient Monitoring',
+    whyItMatters: 'Improve patient safety and reduce hospital readmissions',
+    dataSources: ['Wearable sensors', 'home monitoring devices', 'patient records'],
+    entitiesTables: ['patients', 'sensor_data', 'alerts'],
+    sampleFields: ['patient_id', 'sensor_type', 'sensor_value'],
+    reactorRole: 'Monitor patients remotely and improve patient safety',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
+  },
+  {
+    id: 'eldercare-2',
+    industry: 'Elder Care',
+    title: 'Fall Detection',
+    whyItMatters: 'Reduce fall-related injuries by detecting falls early',
+    dataSources: ['Wearable sensors', 'video cameras', 'patient history'],
+    entitiesTables: ['patients', 'fall_events', 'alerts'],
+    sampleFields: ['patient_id', 'fall_timestamp', 'location'],
+    reactorRole: 'Detect falls early and reduce fall-related injuries',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  {
+    id: 'eldercare-3',
+    industry: 'Elder Care',
+    title: 'Medication Adherence',
+    whyItMatters: 'Improve medication adherence and reduce adverse drug events',
+    dataSources: ['Smart pill dispensers', 'patient records', 'pharmacy data'],
+    entitiesTables: ['patients', 'medications', 'adherence_records'],
+    sampleFields: ['patient_id', 'medication_id', 'adherence_rate'],
+    reactorRole: 'Improve medication adherence and reduce adverse drug events',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+
+  // Automotive Use Cases
+  {
+    id: 'automotive-1',
+    industry: 'Automotive',
+    title: 'Predictive Maintenance',
+    whyItMatters: 'Reduce downtime and maintenance costs by predicting failures',
+    dataSources: ['Vehicle sensor data', 'maintenance records', 'weather data'],
+    entitiesTables: ['vehicles', 'sensors', 'maintenance_events'],
+    sampleFields: ['vehicle_id', 'sensor_type', 'sensor_value'],
+    reactorRole: 'Predict failures and reduce downtime',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'automotive-2',
+    industry: 'Automotive',
+    title: 'Autonomous Driving',
+    whyItMatters: 'Improve safety and efficiency by enabling autonomous driving',
+    dataSources: ['Sensor data', 'mapping data', 'traffic data'],
+    entitiesTables: ['vehicles', 'sensors', 'driving_events'],
+    sampleFields: ['vehicle_id', 'sensor_type', 'sensor_value'],
+    reactorRole: 'Enable autonomous driving and improve safety',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
+  },
+  {
+    id: 'automotive-3',
+    industry: 'Automotive',
+    title: 'Personalized Driving Experience',
+    whyItMatters: 'Improve customer satisfaction by personalizing the driving experience',
+    dataSources: ['Driver preferences', 'vehicle data', 'location data'],
+    entitiesTables: ['vehicles', 'drivers', 'driving_preferences'],
+    sampleFields: ['vehicle_id', 'driver_id', 'preference_type'],
+    reactorRole: 'Personalize the driving experience and improve customer satisfaction',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
+  },
+  
+  // High Tech/B2B Use Cases
+  {
+    id: 'hightech-1',
+    industry: 'High Tech/B2B',
+    title: 'Multi-Tenant SaaS Analytics',
+    whyItMatters: 'Provide isolated analytics per customer while maintaining operational efficiency',
+    dataSources: ['App usage logs', 'billing systems', 'support tickets'],
+    entitiesTables: ['tenant_metrics', 'usage_stats', 'feature_adoption'],
+    sampleFields: ['tenant_id', 'feature_used', 'session_duration'],
+    reactorRole: 'Segment and process data per tenant with privacy boundaries',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+  },
+  {
+    id: 'hightech-2',
+    industry: 'High Tech/B2B',
+    title: 'API Usage Monitoring & Billing',
+    whyItMatters: 'Track API consumption for accurate billing and capacity planning',
+    dataSources: ['API gateway logs', 'billing systems'],
+    entitiesTables: ['api_calls', 'usage_tiers', 'billing_cycles'],
+    sampleFields: ['endpoint', 'calls_count', 'response_time'],
+    reactorRole: 'Aggregate API metrics and feed billing systems with usage data',
+    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'hightech-3',
+    industry: 'High Tech/B2B',
+    title: 'Product Usage Intelligence',
+    whyItMatters: 'Understand feature adoption to guide product development and customer success',
+    dataSources: ['Product telemetry', 'user sessions', 'support data'],
+    entitiesTables: ['feature_usage', 'user_journeys', 'adoption_metrics'],
+    sampleFields: ['user_id', 'feature_name', 'usage_frequency'],
+    reactorRole: 'Process telemetry data to create actionable product insights',
     gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-blue'
   },
-
-  // Automotive
   {
-    id: '30',
-    industry: 'Automotive',
-    title: 'Test Drive Lead Conversion Funnel',
-    whyItMatters: 'Assess drop-off between test drives and dealer conversions',
-    dataSources: ['Dealer CRM', 'Marketing platform'],
-    entitiesTables: ['leads', 'test_drives', 'sales'],
-    sampleFields: ['lead_id', 'dealer_id', 'status'],
-    reactorRole: 'Build funnel analytics from multiple siloed systems',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-red'
-  },
-  {
-    id: '31',
-    industry: 'Automotive',
-    title: 'Connected Vehicle Telemetry Analysis',
-    whyItMatters: 'Monitor fleet health, usage patterns, and over-the-air issues',
-    dataSources: ['Telematics', 'Vehicle ECU', 'Dealer repair logs'],
-    entitiesTables: ['telemetry_events', 'vehicle_registry', 'repair_visits'],
-    sampleFields: ['vin', 'mileage', 'event_code', 'region'],
-    reactorRole: 'Stream, enrich, and route vehicle data for analysis and OTA updates',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-reactor-dark-blue'
-  },
-
-  // Media & Entertainment
-  {
-    id: '32',
-    industry: 'Media & Entertainment',
-    title: 'Content Engagement Stream',
-    whyItMatters: 'Evaluate which shows are getting most views, completions, or skips',
-    dataSources: ['Roku', 'FireTV', 'Web App', 'CDN logs'],
-    entitiesTables: ['engagement_logs', 'media_assets'],
-    sampleFields: ['asset_id', 'duration_watched', 'event_type'],
-    reactorRole: 'Ingest JSON logs, normalize into engagement tables for view metrics',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
-  },
-  {
-    id: '33',
-    industry: 'Media & Entertainment',
-    title: 'Ad Impression Analysis',
-    whyItMatters: 'Understand reach and CPM across partners and platforms',
-    dataSources: ['Ad servers', 'DSPs', 'Partner logs'],
-    entitiesTables: ['ad_impressions', 'platform_metrics'],
-    sampleFields: ['campaign_id', 'impressions', 'revenue'],
-    reactorRole: 'Unify and cleanse campaign metrics for performance tracking',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-medium-blue'
-  },
-  {
-    id: '34',
-    industry: 'Media & Entertainment',
-    title: 'Subscriber Churn Model',
-    whyItMatters: 'Prepare churn signals for initial modeling of at-risk subscribers',
-    dataSources: ['Billing', 'Usage', 'Support'],
-    entitiesTables: ['account_usage', 'support_interactions', 'billing_status'],
-    sampleFields: ['user_id', 'login_count', 'cancel_reason'],
-    reactorRole: 'Extract features and timestamp changes to train churn prediction models',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-soundcommerce-yellow'
-  },
-  {
-    id: '35',
-    industry: 'Media & Entertainment',
-    title: 'Unified Content Analytics Hub',
-    whyItMatters: 'Create central view of content engagement by region, platform, and demo',
-    dataSources: ['App logs', 'Platform APIs', 'CMS'],
-    entitiesTables: ['content_metrics', 'user_engagement', 'device_data'],
-    sampleFields: ['asset_id', 'region', 'watch_time'],
-    reactorRole: 'Aggregate content metrics for executive and programming teams',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-reactor-red'
-  },
-  {
-    id: '36',
-    industry: 'Media & Entertainment',
-    title: 'Advanced Recommendation Inputs',
-    whyItMatters: 'Provide enriched behavioral data to recommendation engines',
-    dataSources: ['Engagement logs', 'Demographics', 'Ratings'],
-    entitiesTables: ['viewer_history', 'viewer_profile'],
-    sampleFields: ['user_id', 'genres_watched', 'avg_rating'],
-    reactorRole: 'Feed ML models with structured usage & profile data',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-soundcommerce-yellow'
-  },
-  {
-    id: '37',
-    industry: 'Media & Entertainment',
-    title: 'Complex Royalty Calculation',
-    whyItMatters: 'Automate content creator payouts based on engagement and contracts',
-    dataSources: ['Plays', 'Contracts', 'Revenue splits'],
-    entitiesTables: ['royalty_contracts', 'content_views', 'revenue_shares'],
-    sampleFields: ['creator_id', 'asset_id', 'revenue_amount'],
-    reactorRole: 'Join revenue and view data to power financial contract engines',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-blue'
-  },
-
-  // Retail Financial Services
-  {
-    id: '38',
-    industry: 'Retail Financial Services',
-    title: 'Customer Touchpoint Timeline',
-    whyItMatters: 'Build a full timeline of a user\'s app, call, and transaction activity',
-    dataSources: ['Call center logs', 'App usage', 'CRM'],
-    entitiesTables: ['interactions', 'app_sessions', 'transactions'],
-    sampleFields: ['customer_id', 'timestamp', 'channel'],
-    reactorRole: 'Unify event streams into chronological customer journeys',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
-  },
-  {
-    id: '39',
-    industry: 'Retail Financial Services',
-    title: 'Product Upsell Funnel',
-    whyItMatters: 'Track conversion from cross-sell campaigns to application started',
-    dataSources: ['Campaign system', 'CRM', 'Application portal'],
-    entitiesTables: ['upsell_offers', 'applications', 'campaigns'],
-    sampleFields: ['offer_id', 'user_id', 'funnel_step'],
-    reactorRole: 'Attribute each campaign to customer engagement steps',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-red'
-  },
-  {
-    id: '40',
-    industry: 'Retail Financial Services',
-    title: '360° Financial Profile',
-    whyItMatters: 'Unify customer data across loans, cards, and investments for service reps',
-    dataSources: ['Loan systems', 'Banking core', 'CRM'],
-    entitiesTables: ['customer_financials', 'products', 'balances'],
-    sampleFields: ['customer_id', 'account_type', 'balance'],
-    reactorRole: 'Normalize across systems and provide unified view to support tools',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
-  },
-  {
-    id: '41',
-    industry: 'Retail Financial Services',
-    title: 'Transaction Behavior Analytics',
-    whyItMatters: 'Detect anomalies and behavioral shifts to flag potential fraud',
-    dataSources: ['Banking logs', 'Payment processors'],
-    entitiesTables: ['transactions', 'risk_signals'],
-    sampleFields: ['transaction_id', 'pattern_score', 'category'],
-    reactorRole: 'Run transformations to flag thresholds, support ML models',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
-  },
-  {
-    id: '42',
-    industry: 'Retail Financial Services',
-    title: 'GDPR/CCPA Audit Layer',
-    whyItMatters: 'Prove compliant handling of personal data for regulators',
-    dataSources: ['Consent manager', 'CRM', 'ETL metadata'],
-    entitiesTables: ['data_access_logs', 'deletion_requests'],
-    sampleFields: ['user_id', 'table_accessed', 'timestamp'],
-    reactorRole: 'Log every data touch and enable audit trails for compliance teams',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
-  },
-
-  // High Tech/B2B
-  {
-    id: '43',
+    id: 'hightech-4',
     industry: 'High Tech/B2B',
-    title: 'Product Telemetry Ingestion',
-    whyItMatters: 'Collect and normalize telemetry from SaaS or hardware usage to detect patterns or issues',
-    dataSources: ['SaaS product logs', 'IoT device streams', 'mobile SDKs'],
-    entitiesTables: ['telemetry_events', 'device_sessions', 'usage_logs'],
-    sampleFields: ['session_id', 'device_id', 'event_type', 'timestamp'],
-    reactorRole: 'Stream and normalize telemetry events into structured formats for product and support analytics',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
+    title: 'Customer Health Scoring',
+    whyItMatters: 'Predict churn and identify expansion opportunities through data-driven health scores',
+    dataSources: ['Usage data', 'support tickets', 'billing history'],
+    entitiesTables: ['health_scores', 'engagement_metrics', 'risk_indicators'],
+    sampleFields: ['account_id', 'health_score', 'churn_risk'],
+    reactorRole: 'Combine multiple signals to calculate and update customer health metrics',
+    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-medium-blue'
   },
   {
-    id: '44',
+    id: 'hightech-5',
     industry: 'High Tech/B2B',
-    title: 'Customer Success Signal Detection',
-    whyItMatters: 'Detect churn or expansion signals based on feature usage and support tickets',
-    dataSources: ['Product analytics', 'CRM', 'support systems'],
-    entitiesTables: ['usage_metrics', 'support_cases', 'customer_profiles'],
-    sampleFields: ['account_id', 'last_login', 'ticket_volume'],
-    reactorRole: 'Unify product, support, and CRM data to build health score triggers',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
-  },
-  {
-    id: '45',
-    industry: 'High Tech/B2B',
-    title: 'Trial-to-Paid Conversion Funnel',
-    whyItMatters: 'Improve free trial conversion by analyzing product usage patterns',
-    dataSources: ['Product logs', 'CRM', 'billing system'],
-    entitiesTables: ['trial_accounts', 'product_events', 'conversion_log'],
-    sampleFields: ['account_id', 'trial_start', 'active_features'],
-    reactorRole: 'Track engagement during trial and correlate to paid conversion rates',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-red'
-  },
-  {
-    id: '46',
-    industry: 'High Tech/B2B',
-    title: 'Support Ticket Auto-Triage Insights',
-    whyItMatters: 'Identify root causes and common escalations early',
-    dataSources: ['Zendesk', 'Jira', 'Salesforce'],
-    entitiesTables: ['support_cases', 'case_tags', 'time_to_resolution'],
-    sampleFields: ['ticket_id', 'priority', 'tags'],
-    reactorRole: 'Analyze support ticket patterns to improve resolution playbooks and routing',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
-  },
-  {
-    id: '47',
-    industry: 'High Tech/B2B',
-    title: 'R&D Feedback Loop for Product Teams',
-    whyItMatters: 'Feed product feedback and defect data back into agile tools or dashboards',
-    dataSources: ['Support logs', 'GitHub/Jira', 'feedback portals'],
-    entitiesTables: ['feature_feedback', 'bug_reports', 'tickets'],
-    sampleFields: ['feature_id', 'bug_code', 'sentiment'],
-    reactorRole: 'Aggregate structured + unstructured inputs for prioritization and roadmap impact',
-    gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
-  },
-  {
-    id: '48',
-    industry: 'High Tech/B2B',
-    title: 'Customer Environment Sync',
-    whyItMatters: 'Map customer environments and deployment profiles for configuration intelligence and upgrades',
-    dataSources: ['Cloud config', 'deployment agents', 'CRM'],
-    entitiesTables: ['environment_profiles', 'instance_metadata', 'license_keys'],
-    sampleFields: ['org_id', 'region', 'cloud_type', 'version'],
-    reactorRole: 'Create materialized environment summaries for CS, TAMs, and upgrade planning',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-soundcommerce-yellow'
-  },
-  {
-    id: '49',
-    industry: 'High Tech/B2B',
-    title: 'Enterprise Contract & Usage Alignment',
-    whyItMatters: 'Validate contracted license usage versus actual product consumption',
-    dataSources: ['Billing systems', 'product usage logs', 'Salesforce'],
-    entitiesTables: ['license_allocations', 'user_activity', 'billing_records'],
-    sampleFields: ['contract_id', 'seats_allocated', 'seats_used'],
-    reactorRole: 'Join license entitlements to product logs to find under- or over-utilization',
-    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-medium-blue'
-  },
-  {
-    id: '50',
-    industry: 'High Tech/B2B',
-    title: 'Multi-Tenant Health Dashboard',
-    whyItMatters: 'Provide real-time insights into service uptime and tenant-specific SLAs',
-    dataSources: ['Monitoring tools', 'OpsDB', 'Cloud logs'],
-    entitiesTables: ['uptime_logs', 'tenant_configs', 'sla_events'],
-    sampleFields: ['tenant_id', 'uptime_pct', 'alert_count'],
-    reactorRole: 'Aggregate per-tenant service metrics for customer-facing status pages and internal ops views',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-reactor-red'
-  },
-  {
-    id: '51',
-    industry: 'High Tech/B2B',
-    title: 'Partner Channel Performance Tracker',
-    whyItMatters: 'Track partner-driven sales, adoption, and expansion across B2B channels',
-    dataSources: ['Salesforce', 'partner CRM', 'product telemetry'],
-    entitiesTables: ['partner_accounts', 'referrals', 'feature_usage'],
-    sampleFields: ['partner_id', 'revenue', 'adoption_curve'],
-    reactorRole: 'Combine CRM and telemetry to measure partner impact and incentive eligibility',
-    gradientClass: 'bg-gradient-to-br from-reactor-red to-reactor-dark-blue'
+    title: 'Geo-specific Compliance Routing',
+    whyItMatters: 'Ensure data residency requirements are met for global customers',
+    dataSources: ['Customer geo data', 'compliance rules'],
+    entitiesTables: ['data_residency', 'compliance_rules', 'routing_policies'],
+    sampleFields: ['region', 'data_classification', 'storage_location'],
+    reactorRole: 'Route data based on region',
+    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-dark-blue'
   }
 ];
