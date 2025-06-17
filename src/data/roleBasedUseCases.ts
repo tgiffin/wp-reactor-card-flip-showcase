@@ -17,12 +17,12 @@ export const roleBasedUseCases: UseCase[] = [
   {
     id: 'role-5',
     role: 'Data Scientist',
-    title: 'MCP (Multi-Channel Prediction) Pipeline',
-    whyItMatters: 'Feed clickstream and conversion data into models predicting behavior across channels',
+    title: 'Multi-Channel Prediction Pipeline',
+    whyItMatters: 'Feed Marketing and conversion data warehouse that then feeds into models predicting behavior across channels',
     dataSources: ['Web/app analytics', 'CRM', 'Ad platforms'],
     entitiesTables: ['touchpoints', 'model_outputs', 'conversion_labels'],
     sampleFields: ['session_id', 'channel', 'conversion_flag'],
-    reactorRole: 'Ingest and unify omnichannel behavior for AI targeting and LTV prediction',
+    reactorRole: 'Ingest and unify omnichannel behavior, Model success flags based on conversion for predictive targeting and LTV prediction',
     gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
   },
   {
