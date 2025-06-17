@@ -367,46 +367,24 @@ export const industryUseCases: UseCase[] = [
   {
     id: 'eldercare-1',
     industry: 'Elder Care',
-    title: 'Remote Patient Monitoring',
-    whyItMatters: 'Improve patient safety and reduce hospital readmissions',
-    dataSources: ['Wearable sensors', 'home monitoring devices', 'patient records'],
-    entitiesTables: ['patients', 'sensor_data', 'alerts'],
-    sampleFields: ['patient_id', 'sensor_type', 'sensor_value'],
-    reactorRole: 'Monitor patients remotely and improve patient safety',
+    title: 'Fall Risk Indicator Feeds',
+    whyItMatters: 'Track resident risk using movement patterns and incident logs',
+    dataSources: ['IoT sensors', 'Nurse logs', 'EHR-lite'],
+    entitiesTables: ['movement_events', 'incidents', 'resident_profiles'],
+    sampleFields: ['resident_id', 'gait_speed', 'falls_last_30d'],
+    reactorRole: 'Analyze patterns with streaming and batch feeds',
     gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
   },
   {
     id: 'eldercare-2',
     industry: 'Elder Care',
-    title: 'Fall Detection',
-    whyItMatters: 'Reduce fall-related injuries by detecting falls early',
-    dataSources: ['Wearable sensors', 'video cameras', 'patient history'],
-    entitiesTables: ['patients', 'fall_events', 'alerts'],
-    sampleFields: ['patient_id', 'fall_timestamp', 'location'],
-    reactorRole: 'Detect falls early and reduce fall-related injuries',
+    title: 'Family Care Portal Data Feeds',
+    whyItMatters: 'Power family-facing portals with structured updates and alerts',
+    dataSources: ['Daily logs', 'Activities', 'Alerts'],
+    entitiesTables: ['daily_notes', 'event_feeds', 'medical_alerts'],
+    sampleFields: ['resident_id', 'mood_score', 'health_alert'],
+    reactorRole: 'Aggregate and expose trusted, limited-access records',
     gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
-  },
-  {
-    id: 'eldercare-3',
-    industry: 'Elder Care',
-    title: 'Medication Adherence',
-    whyItMatters: 'Improve medication adherence and reduce adverse drug events',
-    dataSources: ['Smart pill dispensers', 'patient records', 'pharmacy data'],
-    entitiesTables: ['patients', 'medications', 'adherence_records'],
-    sampleFields: ['patient_id', 'medication_id', 'adherence_rate'],
-    reactorRole: 'Improve medication adherence and reduce adverse drug events',
-    gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
-  },
-  {
-    id: 'eldercare-4',
-    industry: 'Elder Care',
-    title: 'Cognitive Health Monitoring',
-    whyItMatters: 'Early detection of cognitive decline to improve quality of life',
-    dataSources: ['Cognitive assessments', 'daily activity logs', 'speech patterns'],
-    entitiesTables: ['patients', 'cognitive_scores', 'decline_indicators'],
-    sampleFields: ['patient_id', 'cognitive_score', 'decline_rate'],
-    reactorRole: 'Monitor cognitive health and detect early signs of decline',
-    gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
 
   // Automotive Use Cases
