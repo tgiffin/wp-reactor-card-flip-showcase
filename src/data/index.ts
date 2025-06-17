@@ -22,6 +22,5 @@ export const roles = [
   'Data Engineer',
   'Data Scientist', 
   'Data Analyst',
-  'ML/Ops Engineer',
   'Data Governance / Security'
 ];
