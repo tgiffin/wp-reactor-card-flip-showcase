@@ -11,7 +11,7 @@ export const industries = [
   'Travel & Hospitality', 
   'Consumer Products',
   'Media & Entertainment',
-  'Retail Financial Services',
+  'Financial Services',
   'Elder Care',
   'Automotive',
   'High Tech/B2B'
