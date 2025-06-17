@@ -1,3 +1,4 @@
+
 import { UseCase } from './types';
 
 export const industryUseCases: UseCase[] = [
@@ -253,57 +254,68 @@ export const industryUseCases: UseCase[] = [
   {
     id: 'media-1',
     industry: 'Media & Entertainment',
-    title: 'Content Recommendation',
-    whyItMatters: 'Increase user engagement by recommending relevant content',
-    dataSources: ['Viewing history', 'user profiles', 'content metadata'],
-    entitiesTables: ['users', 'content', 'recommendations'],
-    sampleFields: ['user_id', 'content_id', 'recommendation_score'],
-    reactorRole: 'Recommend relevant content to users',
+    title: 'Content Engagement Stream',
+    whyItMatters: 'Evaluate which shows are getting most views, completions, or skips',
+    dataSources: ['Roku', 'FireTV', 'Web App', 'CDN logs'],
+    entitiesTables: ['engagement_logs', 'media_assets'],
+    sampleFields: ['asset_id', 'duration_watched', 'event_type'],
+    reactorRole: 'Ingest JSON logs, normalize into engagement tables for view metrics',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
   {
     id: 'media-2',
     industry: 'Media & Entertainment',
-    title: 'Audience Segmentation',
-    whyItMatters: 'Improve advertising ROI by targeting specific audience segments',
-    dataSources: ['Demographics', 'viewing habits', 'engagement metrics'],
-    entitiesTables: ['users', 'segments', 'advertising_performance'],
-    sampleFields: ['user_id', 'segment_id', 'ad_response_rate'],
-    reactorRole: 'Segment audiences and improve advertising ROI',
+    title: 'Ad Impression Analysis',
+    whyItMatters: 'Understand reach and CPM across partners and platforms',
+    dataSources: ['Ad servers', 'DSPs', 'Partner logs'],
+    entitiesTables: ['ad_impressions', 'platform_metrics'],
+    sampleFields: ['campaign_id', 'impressions', 'revenue'],
+    reactorRole: 'Unify and cleanse campaign metrics for performance tracking',
     gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-dark-blue'
   },
   {
     id: 'media-3',
     industry: 'Media & Entertainment',
-    title: 'Content Performance Analysis',
-    whyItMatters: 'Optimize content strategy by analyzing performance metrics',
-    dataSources: ['Viewing data', 'engagement metrics', 'feedback data'],
-    entitiesTables: ['content', 'performance_metrics', 'user_feedback'],
-    sampleFields: ['content_id', 'view_count', 'engagement_score'],
-    reactorRole: 'Analyze content performance and optimize content strategy',
+    title: 'Subscriber Churn Model',
+    whyItMatters: 'Prepare churn signals for initial modeling of at-risk subscribers',
+    dataSources: ['Billing', 'Usage', 'Support'],
+    entitiesTables: ['account_usage', 'support_interactions', 'billing_status'],
+    sampleFields: ['user_id', 'login_count', 'cancel_reason'],
+    reactorRole: 'Extract features and timestamp changes to train churn prediction models',
     gradientClass: 'bg-gradient-to-br from-reactor-dark-blue to-reactor-blue'
   },
   {
     id: 'media-4',
     industry: 'Media & Entertainment',
-    title: 'Real-time Streaming Analytics',
-    whyItMatters: 'Optimize streaming quality and detect issues in real-time',
-    dataSources: ['Streaming logs', 'network data', 'device metrics'],
-    entitiesTables: ['streams', 'quality_metrics', 'performance_alerts'],
-    sampleFields: ['stream_id', 'quality_score', 'buffering_events'],
-    reactorRole: 'Monitor streaming performance and optimize delivery',
+    title: 'Unified Content Analytics Hub',
+    whyItMatters: 'Create central view of content engagement by region, platform, and demo',
+    dataSources: ['App logs', 'Platform APIs', 'CMS'],
+    entitiesTables: ['content_metrics', 'user_engagement', 'device_data'],
+    sampleFields: ['asset_id', 'region', 'watch_time'],
+    reactorRole: 'Aggregate content metrics for executive and programming teams',
     gradientClass: 'bg-gradient-to-br from-reactor-blue to-reactor-medium-blue'
   },
   {
     id: 'media-5',
     industry: 'Media & Entertainment',
-    title: 'Social Media Trend Analysis',
-    whyItMatters: 'Create trending content by analyzing social media patterns',
-    dataSources: ['Social platforms', 'hashtag data', 'viral content'],
-    entitiesTables: ['trends', 'social_metrics', 'content_virality'],
-    sampleFields: ['trend_id', 'engagement_rate', 'virality_score'],
-    reactorRole: 'Identify trending topics and predict content success',
+    title: 'Advanced Recommendation Inputs',
+    whyItMatters: 'Provide enriched behavioral data to recommendation engines',
+    dataSources: ['Engagement logs', 'Demographics', 'Ratings'],
+    entitiesTables: ['viewer_history', 'viewer_profile'],
+    sampleFields: ['user_id', 'genres_watched', 'avg_rating'],
+    reactorRole: 'Feed ML models with structured usage & profile data',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
+  },
+  {
+    id: 'media-6',
+    industry: 'Media & Entertainment',
+    title: 'Complex Royalty Calculation',
+    whyItMatters: 'Automate content creator payouts based on engagement and contracts',
+    dataSources: ['Plays', 'Contracts', 'Revenue splits'],
+    entitiesTables: ['royalty_contracts', 'content_views', 'revenue_shares'],
+    sampleFields: ['creator_id', 'asset_id', 'revenue_amount'],
+    reactorRole: 'Join revenue and view data to power financial contract engines',
+    gradientClass: 'bg-gradient-to-br from-soundcommerce-yellow to-reactor-blue'
   },
 
   // Retail Financial Services Use Cases
