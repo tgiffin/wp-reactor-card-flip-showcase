@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import FilterBar from '../components/FilterBar';
 import UseCaseCard from '../components/UseCaseCard';
@@ -77,20 +78,38 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <ReactorLogo className="w-16 h-16" variant="horizontal-dark" />
-              <div>
-                <h1 className="font-inter font-bold text-3xl text-reactor-dark-blue">
-                  Industry Use Cases
-                </h1>
-                <p className="font-inter text-reactor-text-grey">
-                  Discover how Reactor Data transforms industries through intelligent data solutions
-                </p>
-              </div>
+      {/* Enhanced Hero Section */}
+      <header className="bg-white">
+        <div className="container mx-auto px-6 py-12">
+          <div className="flex items-start space-x-6 mb-8">
+            <ReactorLogo className="w-20 h-20 flex-shrink-0" variant="horizontal-dark" />
+            <div className="flex-1">
+              <h1 className="font-inter font-bold text-4xl lg:text-5xl text-reactor-dark-blue mb-3">
+                Industry Use Cases
+              </h1>
+              <p className="font-inter font-semibold text-xl text-reactor-blue mb-6">
+                Reactor activates your data supply chain — powered by Electron AI.
+              </p>
+            </div>
+          </div>
+          
+          <div className="max-w-4xl space-y-6">
+            <p className="font-inter text-lg text-reactor-text-grey leading-relaxed">
+              Every business outcome starts with data. Whether it's a dashboard, a predictive model, or a personalized experience, Reactor ensures the data gets where it needs to go. Clean, unified, and ready for action.
+            </p>
+            
+            <p className="font-inter text-lg text-reactor-text-grey leading-relaxed">
+              With Electron AI built in, teams move faster. Reactor and Electron simplify pipeline setup, field mapping, and transformation tasks — even generating AI-ready outputs, for your Data warehouse platforms, which are now multi-purpose.
+            </p>
+            
+            <p className="font-inter text-lg text-reactor-text-grey leading-relaxed">
+              Use the filters to explore use cases by industry or role, and see how Reactor helps data teams go from source to solution, without the manual heavy lifting.
+            </p>
+            
+            <div className="pt-4">
+              <p className="font-inter font-semibold text-lg text-reactor-medium-blue italic">
+                "Electron isn't just an assistant — it's your teammate inside the pipeline."
+              </p>
             </div>
           </div>
         </div>
