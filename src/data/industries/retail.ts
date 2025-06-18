@@ -1,4 +1,3 @@
-
 import { UseCase } from '../types';
 
 export const retailUseCases: UseCase[] = [
@@ -76,7 +75,7 @@ export const retailUseCases: UseCase[] = [
     dataSources: ['WMS', 'RFID', 'POS'],
     entitiesTables: ['inventory_events'],
     sampleFields: ['sku_id', 'delta_qty', 'timestamp'],
-    reactorRole: 'Stream deltas via Kafka, push to fulfillment APIs',
+    reactorRole: 'Stream inventory deltas from eComm, POS, product, and fulfillment APIs and update the Data Warehouse.',
     gradientClass: 'bg-gradient-to-br from-reactor-medium-blue to-soundcommerce-yellow'
   },
   {
