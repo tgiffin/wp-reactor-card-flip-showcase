@@ -35,40 +35,71 @@ body {
     background-color: #F9FAFB;
 }
 
-/* Header */
+/* Enhanced Hero Section */
 .reactor-header {
     background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.reactor-header-content {
-    padding: 24px 0;
+.reactor-hero-content {
+    padding: 48px 0;
+}
+
+.reactor-hero-top {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
-.reactor-header-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.reactor-logo-header {
-    width: 64px;
-    height: 64px;
+.reactor-logo-hero {
+    width: 80px;
+    height: 80px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
-.reactor-header-text h1 {
+.reactor-hero-text {
+    flex: 1;
+}
+
+.reactor-hero-text h1 {
     font-weight: 700;
-    font-size: 30px;
+    font-size: 3rem;
     color: var(--reactor-dark-blue);
-    margin-bottom: 4px;
+    margin-bottom: 12px;
+    line-height: 1.1;
 }
 
-.reactor-header-text p {
+.reactor-tagline {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--reactor-blue);
+    margin-bottom: 0;
+}
+
+.reactor-hero-description {
+    max-width: 64rem;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reactor-hero-description p {
+    font-size: 1.125rem;
     color: var(--reactor-text-grey);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.reactor-hero-quote {
+    padding-top: 16px;
+}
+
+.reactor-hero-quote p {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--reactor-medium-blue);
+    font-style: italic;
 }
 
 /* Filter Bar */
@@ -335,19 +366,40 @@ body {
         padding: 0 16px;
     }
     
-    .reactor-header-left {
+    .reactor-hero-content {
+        padding: 32px 0;
+    }
+    
+    .reactor-hero-top {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
+        margin-bottom: 24px;
     }
     
-    .reactor-logo-header {
-        width: 48px;
-        height: 48px;
+    .reactor-logo-hero {
+        width: 64px;
+        height: 64px;
     }
     
-    .reactor-header-text h1 {
-        font-size: 24px;
+    .reactor-hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .reactor-tagline {
+        font-size: 1.125rem;
+    }
+    
+    .reactor-hero-description {
+        gap: 20px;
+    }
+    
+    .reactor-hero-description p {
+        font-size: 1rem;
+    }
+    
+    .reactor-hero-quote p {
+        font-size: 1rem;
     }
     
     .reactor-card {
@@ -357,6 +409,12 @@ body {
     .reactor-card-front,
     .reactor-card-back {
         padding: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .reactor-hero-text h1 {
+        font-size: 3.5rem;
     }
 }
 
